@@ -10,13 +10,6 @@ module.exports = function(grunt) {
         src: ['public/client/*' ],
         dest: 'public/dist/client.js',
       },
-      // lib: {
-      //   src: ['public/lib/backbone.js',
-      //         'public/lib/handlebars.js',
-      //         'public/lib/jquery.js',
-      //         'public/lib/underscore.js'],
-      //   dest: 'public/dist/lib.js',
-      // }
     },
 
     mochaTest: {
@@ -88,6 +81,7 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+        command: 'git push azure master'
       }
     },
   });
@@ -131,6 +125,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
+      grunt.task.run(['shell']);
       // add your production server task here
     } else {
       grunt.task.run([ 'server-dev' ]);
