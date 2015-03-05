@@ -8,22 +8,6 @@ var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
-var urlsSchema = mongoose.Schema({
-    url: String,
-    base_url: String,
-    code: String,
-    title: String,
-    visits: Number,
-    createdAt: {type: Date, default: Date.now}
-    // updatedAt: {type: Date, default:}
-});
-
-
-
-
-
-
-
 // db.knex.schema.hasTable('urls').then(function(exists) {
 //   if (!exists) {
 //     db.knex.schema.createTable('urls', function (link) {
