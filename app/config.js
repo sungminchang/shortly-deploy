@@ -8,54 +8,21 @@ var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
-var kittySchema = mongoose.Schema({
-    name: String,
-    size: String
-});
-
-db.once('open', function() {
-
-
-
-  var Kitten = mongoose.model('Hello', kittySchema);
-
-
-  var fluffy = new Kitten({ name: 'fluffy', size: '15' });
-
-  // fluffy.speak() // "Meow name is fluffy"
-
-  fluffy.save(function (err, fluffy) {
-    if (err) return console.error(err);
-  });
-
-});
-
-db.once('connected', function(){
-  var Kitten = mongoose.model('Hello', kittySchema);
-
-
-  var fluffy = new Kitten({ name: 'fluffy', size: '15' });
-
-  // fluffy.speak() // "Meow name is fluffy"
-
-  fluffy.save(function (err, fluffy) {
-    if (err) return console.error(err);
-  });
+var urlsSchema = mongoose.Schema({
+    url: String,
+    base_url: String,
+    code: String,
+    title: String,
+    visits: Number,
+    createdAt: {type: Date, default: Date.now}
+    // updatedAt: {type: Date, default:}
 });
 
 
 
-// var db = Bookshelf.initialize({
-//   client: 'sqlite3',
-//   connection: {
-//     host: '127.0.0.1',
-//     user: 'your_database_user',
-//     password: 'password',
-//     database: 'shortlydb',
-//     charset: 'utf8',
-//     filename: path.join(__dirname, '../db/shortly.sqlite')
-//   }
-// });
+
+
+
 
 // db.knex.schema.hasTable('urls').then(function(exists) {
 //   if (!exists) {
